@@ -5,20 +5,12 @@
 # https://www.geeksforgeeks.org/single-layer-perceptron-in-tensorflow/
 # =============================================================================
 
-# =============================================================================
-# region Imports
-# =============================================================================
-
-import numpy as np  # NumPy is the fundamental package for scientific computing with Python.
-import tensorflow as tf  # TensorFlow is an open source machine learning library
+import numpy as np
+import tensorflow as tf
 from tensorflow import (
     keras,
-)  # Keras is a high-level neural networks API, written in Python and capable of running on top of TensorFlow.
-import matplotlib.pyplot as plt  # Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python.
-
-# =============================================================================
-# region Entry Point for the Script
-# =============================================================================
+)
+import matplotlib.pyplot as plt
 
 
 def run():
@@ -29,3 +21,25 @@ def run():
     print(x_train[0].shape)
     plt.imshow(x_train[0])
     plt.savefig("output/img.png")
+
+    # Normalizing the dataset
+    x_train = x_train / 255
+    x_test = x_test / 255
+
+    # Flatting the dataset in order
+    # to compute for model building
+    x_train_flatten = x_train.reshape(len(x_train), 28 * 28)
+    x_test_flatten = x_test.reshape(len(x_test), 28 * 28)
+
+    # Building the a neural network
+    model = keras.Sequential(
+        [keras.layers.Dense(10, input_shape=(784,), activation="sigmoid")]
+    )
+    model.compile(
+        optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"]
+    )
+
+    model.fit(x_train_flatten, y_train, epochs=5)
+
+    # Evaluating the model
+    model.evaluate(x_test_flatten, y_test)
