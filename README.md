@@ -1,5 +1,26 @@
 # Project Setup with Makefile
 
+## Quicknode
+
+1. **Add your script** to the `skripts/` directory and define a `run()` function. This function will be the entry point of your script.
+
+2. (Optional) **Add tests** to the `tests/` directory for your script.
+
+3. To **execute your script** or run tests, use the following commands:
+
+    ```bash
+    make run
+    ```
+    or
+
+    ```bash
+    make test
+    ```
+
+4. **Done!** Your script is now ready to run.
+
+---
+
 This project uses a **Makefile** to manage the creation of a virtual environment, installation of dependencies, running tests, and starting the application. Below are the available commands and their functions.
 
 ## Prerequisites
