@@ -5,6 +5,7 @@ venv:
 	python3 -m venv $(VENV_DIR)
 	$(VENV_DIR)/bin/pip install --upgrade pip
 	$(VENV_DIR)/bin/pip install -r requirements.txt
+	clear
 
 # Delete virtual environment
 clean:
