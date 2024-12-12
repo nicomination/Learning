@@ -1,6 +1,6 @@
-.PHONY: run test venv clean
-
 # Create virtual environment
+VENV_DIR := .venv
+
 venv:
 	python3 -m venv $(VENV_DIR)
 	$(VENV_DIR)/bin/pip install --upgrade pip
