@@ -37,7 +37,7 @@ def run():
     # 784 = number of input nodes
     # sigmoid = activation function
     model = keras.Sequential(
-        [keras.layers.Dense(10, input_shape=(784,), activation="sigmoid")]
+        [keras.layers.Dense(5, input_shape=(784,), activation="sigmoid")]
     )
 
     # Compiling the model
